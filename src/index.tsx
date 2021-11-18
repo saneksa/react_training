@@ -1,5 +1,5 @@
 import { render } from "react-dom";
-import RootFCComponent from "./RootFCComponent";
+import RootComponentFC from "./RootFCComponent";
 
 const rootElement = document.getElementById("root");
-render(<RootFCComponent />, rootElement);
+render(<RootComponentFC />, rootElement);
