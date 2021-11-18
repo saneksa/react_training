@@ -14,10 +14,16 @@ const RootFCComponent: FC = () => {
     setCountSecond((prev) => prev + 1);
   }, []);
 
+  const keys = ["q", "w", "e"];
+
   return (
     <div>
       <div>
-        <FirstComponentFC count={countFirst} onClick={handleFirstClick} />
+        <FirstComponentFC
+          keys={keys}
+          count={countFirst}
+          onClick={handleFirstClick}
+        />
       </div>
       <div>
         <SecondComponentFC count={countSecond} onClick={handleSecondClick} />
