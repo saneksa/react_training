@@ -2,20 +2,33 @@ import { FC, memo, useCallback, useState } from "react";
 import FirstComponentFC from "./FirstComponentFunc";
 import SecondComponentFC from "./SecondComponentFC";
 
-const RootFCComponent: FC = () => {
+const RootComponentFC: FC = () => {
+  const [countRoot, setCountRoot] = useState(0);
   const [countFirst, setCountFirst] = useState(0);
   const [countSecond, setCountSecond] = useState(0);
 
-  const handleFirstClick = useCallback(() => {
-    setCountFirst((prev) => prev + 1);
-  }, []);
+  const handleRootClick = () => {
+    setCountRoot((prev) => prev + 1);
+  };
 
-  const handleSecondClick = useCallback(() => {
+  const handleFirstClick = () => {
+    setCountFirst((prev) => prev + 1);
+  };
+
+  const handleSecondClick = () => {
     setCountSecond((prev) => prev + 1);
-  }, []);
+  };
+
+  console.warn("render RootComponentFC");
 
   return (
     <div>
+      <div>
+        <div>RootCount: {countRoot}</div>
+        <div>
+          <button onClick={handleRootClick}>SetCountRoot</button>
+        </div>
+      </div>
       <div>
         <FirstComponentFC count={countFirst} onClick={handleFirstClick} />
       </div>
@@ -26,4 +39,4 @@ const RootFCComponent: FC = () => {
   );
 };
 
-export default memo(RootFCComponent);
+export default memo(RootComponentFC);
