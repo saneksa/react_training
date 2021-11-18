@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 interface ISecondComponentProps {
   count: number;
@@ -7,7 +7,7 @@ interface ISecondComponentProps {
 
 const SecondComponentFC: FC<ISecondComponentProps> = ({
   count = 0,
-  onClick
+  onClick,
 }) => {
   console.warn("render SecondComponentFC");
 
@@ -19,4 +19,4 @@ const SecondComponentFC: FC<ISecondComponentProps> = ({
   );
 };
 
-export default SecondComponentFC;
+export default memo(SecondComponentFC);
