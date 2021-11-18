@@ -1,13 +1,15 @@
-import { FC, memo } from "react";
+import { FC, memo, ReactNode } from "react";
 
 interface ISecondComponentProps {
   count: number;
   onClick: () => void;
+  children: ReactNode;
 }
 
 const SecondComponentFC: FC<ISecondComponentProps> = ({
   count = 0,
   onClick,
+  children,
 }) => {
   console.warn("render SecondComponentFC");
 
@@ -15,6 +17,7 @@ const SecondComponentFC: FC<ISecondComponentProps> = ({
     <div>
       <div onClick={onClick}>FirstComponentFunc</div>
       <div>{count}</div>
+      <div>{children}</div>
     </div>
   );
 };

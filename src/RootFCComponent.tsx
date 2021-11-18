@@ -7,17 +7,17 @@ const RootComponentFC: FC = () => {
   const [countFirst, setCountFirst] = useState(0);
   const [countSecond, setCountSecond] = useState(0);
 
-  const handleRootClick = () => {
+  const handleRootClick = useCallback(() => {
     setCountRoot((prev) => prev + 1);
-  };
+  }, []);
 
-  const handleFirstClick = () => {
+  const handleFirstClick = useCallback(() => {
     setCountFirst((prev) => prev + 1);
-  };
+  }, []);
 
-  const handleSecondClick = () => {
+  const handleSecondClick = useCallback(() => {
     setCountSecond((prev) => prev + 1);
-  };
+  }, []);
 
   console.warn("render RootComponentFC");
 
@@ -39,7 +39,9 @@ const RootComponentFC: FC = () => {
         />
       </div>
       <div>
-        <SecondComponentFC count={countSecond} onClick={handleSecondClick} />
+        <SecondComponentFC count={countSecond} onClick={handleSecondClick}>
+          <div>123</div>
+        </SecondComponentFC>
       </div>
     </div>
   );
