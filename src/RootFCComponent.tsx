@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import FirstComponentFC from "./FirstComponentFunc";
 import SecondComponentFC from "./SecondComponentFC";
 
@@ -26,4 +26,4 @@ const RootFCComponent: FC = () => {
   );
 };
 
-export default RootFCComponent;
+export default memo(RootFCComponent);

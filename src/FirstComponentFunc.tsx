@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 interface IFirstComponentProps {
   count: number;
@@ -16,4 +16,4 @@ const FirstComponentFC: FC<IFirstComponentProps> = ({ count = 0, onClick }) => {
   );
 };
 
-export default FirstComponentFC;
+export default memo(FirstComponentFC);
